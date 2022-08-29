@@ -42,3 +42,30 @@ body {
     width: 110px;
     background: blue
 }
+
+.col-md-9 {
+    margin-top: 270px;
+    margin-left: 100px;
+}
+
+#result_img {
+    height: 200px;
+}
+
+.image {
+    /* margin: 0 auto 5px */
+    position: absolute;
+    right: 300px;
+    left: 10px;
+    width: 300px;
+    /* left: 400px; */
+    /* text-align: center; */
+}
+
+.table {
+    position: absolute;
+    right: 800px;
+    left: 350px;
+    bottom: 150px;
+    /* width: 400px; */
+}

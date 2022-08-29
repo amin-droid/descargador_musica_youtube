@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 {% load static %}
+{% load embed_video_tags %}
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,7 +19,7 @@
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
-    <title>Document</title>
+    <title>INICIO</title>
 </head>
 
 <body>
@@ -28,8 +29,30 @@
                 <form action={% url 'searchbar' %} method="POST">
                     {% csrf_token %}
                 <div class="search"> <i class="fa fa-search"></i> <input type="text" class="form-control" placeholder="Have a question? Ask Now" name="search"> <button class="btn btn-primary">Search</button> </div>
-            </div>
+                    
         </form>
+        </div>
+        <div class="col-md-9">
+            <img class="card-img-top" id="result_img" src="{{search.thumbnail_url}}" alt="{{search.title}}">
+            <div class="card-text"><h4 class="image">{{search.title}}</h4></div>
+            {% if search %}
+            <div class="resolution">
+                <table class="table">
+                    <thead>
+                        <tr><th>Resolution</th>
+                            <th>Download</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for resolution in resolutions  %}
+                        <tr>
+                           
+                            <th>{{ resolution}}</th>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table></div>
+                {% endif %}
         </div>
     </div>
 </body>
